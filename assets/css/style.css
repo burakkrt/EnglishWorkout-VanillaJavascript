@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+/* -------- Menu --------- */
+.menu{
+
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 30%;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    box-shadow: rgba(0,0,0,0.5) 0 -2px 12px;
+}
+
+.menu .menu-item .header-text{
+
+    margin-bottom: 10px;
+    color: #3C4048;
+ }
+
+.menu .menu-item{
+
+    margin: 2rem 0;
+    padding: 1rem;
+    border: 1px dashed black;
+}
+
+.menu .menu-item .soru-ve-cevap,
+.menu .menu-item .sadece-soru
+{
+    display: inline-block;
+    padding: .3rem .6rem;
+    border-radius: 5px;
+    color: #FAF7F0;
+}
+
+.menu .menu-item .soru-ve-cevap{
+
+    background-color: #425F57;
+}
+
+.menu .menu-item .sadece-soru{
+
+    background-color: #9E7676;
+}
+
+.menu .menu-item .textbox-input{
+
+    width: 120px;
+    padding: 4px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+.menu .menu-item button{
+
+    width: 120px;
+    padding: 4px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu .menu-item button:hover{
+
+
+    background-color: #A8E890;
+    transition-duration: 300ms;
+}
+
+.menu .menu-item button:active{
+
+    background-color: #54B435;
+}
+
+.menu #result .toplam-soru,
+.menu #result .toplam-dogru,
+.menu #result .toplam-yanlis,
+.menu #result .toplam-bos
+{
+
+    padding: 8px 16px;
+    color: #EEEEEE;
+    background-color: #E0144C;
+}
+
+.menu #result{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.menu #result h4{
+
+    padding: 8px 0px 7px 8px;
+    color: #EEEEEE;
+    background-color: #3C4048;
+}
+
+@media (max-width: 576px){
+
+    .menu{
+
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .menu .menu-item>*{
+
+        margin: 3px;
+    }
+}
+
+@media (max-width: 1652px){
+    .menu #result{
+
+        flex-direction: column;
+
+    }
+    .menu #result h4{
+
+        text-align: center;
+        color: #3C4048!important;
+        background: none!important;
+    }
+    .menu #result .toplam-soru,
+    .menu #result .toplam-dogru,
+    .menu #result .toplam-yanlis,
+    .menu #result .toplam-bos
+    {
+        color: #3C4048!important;
+        background-color: transparent!important;
+        padding: 0!important;
+    }
+
+}
+
+/* --------- Container Content --------- */
+.container{
+
+    width: 70%;
+    padding: 3rem 1.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1500px){
+
+    .container{
+
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px){
+
+    .container{
+
+        width: 100%;
+    }
+
+    .container .soru-item{
+        font-size: 1.4rem;
+        min-width: auto;
+        padding: 7px 0;
+    }
+
+}
+
+
+/* --------- Sorular -------- */
+.soru-item{
+    position: relative;
+    display: inline-block;
+    min-width: 500px;
+    border: 1px dashed black;
+    padding: 20px 0;
+    border-radius: 5px;
+    animation: soruGetirAnimasyon 200ms forwards ease-in-out;
+    transition-duration: all 1000ms;
+}
+
+.soru-item.true{
+
+    border: none;
+    pointer-events: none;
+    background-image: linear-gradient(transparent, #82CD47);
+    /* border: 1px solid black!important; */
+}
+
+.soru-item.false{
+
+    border: none;
+    pointer-events: none;
+    background-image: linear-gradient(transparent, #FF6464);
+     /* border: 1px solid black!important; */
+}
+
+.soru-item .settings{
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 9px;
+
+}
+
+.soru-item .settings .settings-icon{
+    font-size: 18px;
+    margin: 0;
+    padding: 2px;
+    border-radius: 2px;
+    box-shadow: rgba(0,0,0,0.7) 1px 1px 2px;
+    color: white;
+    background-color: rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+.soru-item .settings .settings-icon:hover{
+    background-color: black;
+    transition-duration: 300ms;
+}
+
+.soru-item .soru-icon {
+    margin-right: 9px;
+    color: rgba(0,0,0,0.8);
+}
+
+.soru-item .soru,
+.soru-item .cevap
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+
+.soru-item .soru-content
+{
+    position: relative;
+    width: 78%;
+}
+
+.soru-item .cevap-content
+{
+    position: relative;
+    width: 90%;
+}
+
+.soru-item input{
+    width: 100%;
+    padding: 2px 5px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+}
+
+.soru-item .soru-content input,
+.soru-item .cevap-content input
+{
+    border-radius: 15px;
+    padding: 3.5px 8px;
+    border: 1px solid grey;
+    background-color: #FAF7F0;
+}
+
+.soru-item .soru-content input:focus,
+.soru-item .cevap-content input:focus
+{
+    outline: none;
+    background-color: #3C4048;
+    color: #EEEEEE;
+}
+
+.soru-item .turkish{
+    display: block;
+    color:rgba(0,0,0,0.5)!important;
+    margin-top: 4px;
+}
+
+@keyframes soruGetirAnimasyon {
+    from{
+        transform: scale(.5);
+    }
+
+    to{
+        transform: scale(1);
+    }
+}
