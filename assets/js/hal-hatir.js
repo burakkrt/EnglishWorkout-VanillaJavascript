@@ -20,22 +20,31 @@ const halHatirSorular = [
 
 ];
 
+const answerCheckFunctionName2 = "tanismaMemleketYerAnswerCheck";
+// ÖNEMLİ NOT = Yukarıdaki string degeri 161. satırdaki function adına ver.
+
+const soruCevapCheckboxID0 = "hal-hatir-soru-ve-cevap";   //Checkbox soru ve cevap id
+const sadeceSoruCheckboxID0 = "hal-hatir-sadece-soru";    //Checkbox sadece soru id
+
+const soruOlusturButtonID0 = "hal-hatir-addQuestion";     //Soru oluşturma butt
+
+
 // ------------ Checkbox Kontrol -----------
-document.querySelector("#hal-hatir #soru-ve-cevap").addEventListener("click", () =>{
-    if(document.querySelector("#hal-hatir #soru-ve-cevap").checked == true){
-        if(document.querySelector("#hal-hatir #sadece-soru").checked == true) document.querySelector("#hal-hatir #sadece-soru").checked = false;
+document.getElementById(soruCevapCheckboxID0).addEventListener("click", () =>{
+    if(document.getElementById(soruCevapCheckboxID0).checked == true){
+        if(document.getElementById(sadeceSoruCheckboxID0).checked == true) document.getElementById(sadeceSoruCheckboxID0).checked = false;
     }
-    else if(document.querySelector("#hal-hatir #sadece-soru").checked == false) document.querySelector("#hal-hatir #sadece-soru").checked = true;
+    else if(document.getElementById(sadeceSoruCheckboxID0).checked == false) document.getElementById(sadeceSoruCheckboxID0).checked = true;
 });
-document.querySelector("#hal-hatir #sadece-soru").addEventListener("click", () =>{
-    if(document.querySelector("#hal-hatir #sadece-soru").checked == true){
-        if(document.querySelector("#hal-hatir #soru-ve-cevap").checked == true) document.querySelector("#hal-hatir #soru-ve-cevap").checked = false; 
+document.getElementById(sadeceSoruCheckboxID0).addEventListener("click", () =>{
+    if(document.getElementById(sadeceSoruCheckboxID0).checked == true){
+        if(document.getElementById(soruCevapCheckboxID0).checked == true) document.getElementById(soruCevapCheckboxID0).checked = false; 
     }
-    else if(document.querySelector("#hal-hatir #soru-ve-cevap").checked == false) document.querySelector("#hal-hatir #soru-ve-cevap").checked = true;
+    else if(document.getElementById(soruCevapCheckboxID0).checked == false) document.getElementById(soruCevapCheckboxID0).checked = true;
 });
 
 // ------------ Soru Oluşturma Button -----------
-document.querySelector("#hal-hatir #addQuestion").addEventListener("click", () =>{
+document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
 
     // Soru adeti sadece sayılar dan mı oluşuyor kontrol et.
     let stringCheckBoolen = false;
@@ -52,7 +61,7 @@ document.querySelector("#hal-hatir #addQuestion").addEventListener("click", () =
 
     // Soru tipini al (Sadece soru ,soru veya cevap)
     let soruTipi = true;
-    if(document.querySelector("#hal-hatir #soru-ve-cevap").checked == true) soruTipi = true;
+    if(document.getElementById(soruCevapCheckboxID0).checked == true) soruTipi = true;
     else soruTipi = false;
 
     // Soru adetini al
@@ -241,6 +250,6 @@ function sonuclariHesapla(){
 document.getElementById("soru-adet").addEventListener("keypress", (event) =>{
     
     if(event.key == "Enter"){
-        document.querySelector("#hal-hatir #addQuestion").click();
+        document.getElementById(soruOlusturButtonID0).click();
     }
 })
