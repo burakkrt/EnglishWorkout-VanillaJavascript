@@ -1,4 +1,4 @@
-const sorular2 = [
+const tanismaYerSorular = [
     {id:0, soru:"What is your name ?", cevap:"My name is Burak.", soruTurkce:"Senin adın ne ? (What is)", cevapTurkce:"Benim adım Burak."},
     {id:1, soru:"What's your name ?", cevap:"I am Burak, and you ?", soruTurkce:"Senin adın ne ? (What's)", cevapTurkce:"Ben Burak, ya sen ?"},
     {id:2, soru:"What's your name ?", cevap:"My name is Burak, and yours ?", soruTurkce:"Senin adın ne ?", cevapTurkce:"Benim ismim Burak, ya seninki ?"},
@@ -73,11 +73,11 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 
     // --Random Numbers--
     let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
-    const randomQuestionNumber = Math.floor(Math.random() * sorular2.length);
+    const randomQuestionNumber = Math.floor(Math.random() * tanismaYerSorular.length);
     
     // --Random Question ID and Random Question--
     const randomSoruID = Math.floor(Math.random() * 100000001);
-    const question = sorular2[randomQuestionNumber];
+    const question = tanismaYerSorular[randomQuestionNumber];
 
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
@@ -154,7 +154,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
 function tanismaMemleketYerAnswerCheck(soruID, elementSoruID, questType){
 
-    const question = sorular2[soruID];
+    const question = tanismaYerSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
 
     if(answer){
