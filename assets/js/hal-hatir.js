@@ -1,4 +1,4 @@
-const sorular0 = [
+const halHatirSorular = [
     {id:0, soru:"How are you ?", cevap:"I am,fine.Thanks", soruTurkce:"Nasılsın ?", cevapTurkce:"İyiyim (fine), teşekkürler."},
     {id:1, soru:"Are you OK ?", cevap:"Not so good.", soruTurkce:"İyi misin ?", cevapTurkce:"Çok iyi değil."},
     {id:2, soru:"How are you ?", cevap:"I feel bad.", soruTurkce:"Nasılsın ?", cevapTurkce:"Kötü hissediyorum."},
@@ -80,11 +80,11 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
 
     // --Random Numbers--
     let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
-    const randomQuestionNumber = Math.floor(Math.random() * sorular0.length);
+    const randomQuestionNumber = Math.floor(Math.random() * halHatirSorular.length);
     
     // --Random Question ID and Random Question--
     const randomSoruID = Math.floor(Math.random() * 100000001);
-    const question = sorular0[randomQuestionNumber];
+    const question = halHatirSorular[randomQuestionNumber];
 
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
@@ -161,7 +161,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
 function halHatirAnswerCheck(soruID, elementSoruID, questType){
 
-    const question = sorular0[soruID];
+    const question = halHatirSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
 
     if(answer){
