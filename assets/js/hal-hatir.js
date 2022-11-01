@@ -20,13 +20,14 @@ const halHatirSorular = [
 
 ];
 
-const answerCheckFunctionName2 = "tanismaMemleketYerAnswerCheck";
+const answerCheckFunctionName0 = "halHatirAnswerCheck";
 // ÖNEMLİ NOT = Yukarıdaki string degeri 161. satırdaki function adına ver.
 
 const soruCevapCheckboxID0 = "hal-hatir-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID0 = "hal-hatir-sadece-soru";    //Checkbox sadece soru id
 
 const soruOlusturButtonID0 = "hal-hatir-addQuestion";     //Soru oluşturma butt
+const soruAdetTextBoxID0 = "hal-hatir-soru-adet";     //Soru adet textbox id
 
 
 // ------------ Checkbox Kontrol -----------
@@ -49,7 +50,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
     // Soru adeti sadece sayılar dan mı oluşuyor kontrol et.
     let stringCheckBoolen = false;
     var allStringChars = ' !"#$%&\'()*+,-./:;<=>?@ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ[\\]^_`abcçdefgğhıijklmnoöpqrsştuüvwxyz{|}~';
-    for(let inputValue of document.querySelector("#hal-hatir #soru-adet").value){
+    for(let inputValue of document.getElementById(soruAdetTextBoxID0).value){
         
         for(let stringChar of allStringChars){
             if(inputValue == stringChar){
@@ -66,11 +67,11 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
 
     // Soru adetini al
     let soruSayisi = 0;
-    if(stringCheckBoolen != true && document.querySelector("#hal-hatir #soru-adet").value != ""){
-        document.querySelector("#hal-hatir #soru-adet").removeAttribute("style");
+    if(stringCheckBoolen != true && document.getElementById(soruAdetTextBoxID0).value != ""){
+        document.getElementById(soruAdetTextBoxID0).removeAttribute("style");
         //En fazla 100 soru getir (Hatalı giriş ve çökmeleri önlemek için)
-        if(document.querySelector("#hal-hatir #soru-adet").value <= 100) soruSayisi = document.querySelector("#hal-hatir #soru-adet").value;
-        else document.querySelector("#hal-hatir #soru-adet").style = "border: 1px solid red!important;";
+        if(document.getElementById(soruAdetTextBoxID0).value <= 100) soruSayisi = document.getElementById(soruAdetTextBoxID0).value;
+        else document.getElementById(soruAdetTextBoxID0).style = "border: 1px solid red!important;";
     }
 
     // -------------- Soru oluşturma bölümü ----------------
@@ -94,7 +95,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
         `
         <section class="soru-item" id="${randomSoruID}">
             <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName0}(${question.id},${randomSoruID},true)">check</span>
             </div>
             <div class="soru">
                 <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -122,7 +123,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
         `
         <section class="soru-item" id="${randomSoruID}">
             <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName0}(${question.id},${randomSoruID},false)">check</span>
             </div>
             <div class="soru">
                 <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -147,7 +148,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
     // document.getElementById(randomSoruID).querySelector("input").focus();
 
     // İşlem sonunda soru adeti textbox ını temizle.
-    document.querySelector("#hal-hatir #soru-adet").value = "";
+    document.getElementById(soruAdetTextBoxID0).value = "";
 
     //Yeni soru oluşturulduğunda, doğru yanlış sonuçlarını güncelle yazdır.
     sonuclariHesapla();
@@ -158,7 +159,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function answerCheck(soruID, elementSoruID, questType){
+function halHatirAnswerCheck(soruID, elementSoruID, questType){
 
     const question = halHatirSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
@@ -247,7 +248,7 @@ function sonuclariHesapla(){
 }
 
 // Soru sayısı textbox press Enter
-document.getElementById("soru-adet").addEventListener("keypress", (event) =>{
+document.getElementById(soruAdetTextBoxID0).addEventListener("keypress", (event) =>{
     
     if(event.key == "Enter"){
         document.getElementById(soruOlusturButtonID0).click();
