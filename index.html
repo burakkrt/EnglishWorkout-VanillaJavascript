@@ -9,77 +9,63 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+    <!-- -- Sağ Menu Paneli -- -->
     <div class="menu">
-
+        <!-- -- Sonuçları Tablosu -- -->
         <div id="result">
             <h4>Toplam Soru : <span class="toplam-soru">0</span></h4>
             <h4>Doğru : <span class="toplam-dogru">0</span></h4>
             <h4>Yanlış : <span class="toplam-yanlis">0</span></h4>
             <h4>Boş : <span class="toplam-bos">0</span></h4>
         </div>
-
-
+        <!-- -- Menu Hal Hatir Soruları -- -->
         <div class="menu-item">
             <h3 class="header-text">Hal Hatır Soruları</h3>
-
             <div class="soru-ve-cevap">
                 <input type="checkbox" name="hal-hatir-soru-ve-cevap" id="hal-hatir-soru-ve-cevap" checked>
                 <label for="hal-hatir-soru-ve-cevap">Soru veya Cevap</label>
             </div>
-
             <div class="sadece-soru">
                 <input type="checkbox" name="hal-hatir-sadece-soru" id="hal-hatir-sadece-soru">
                 <label for="hal-hatir-sadece-soru">Sadece Soru</label>
             </div>
-
             <input class="textbox-input" type="text" name="hal-hatir-soru-adet" id="hal-hatir-soru-adet" placeholder="Varsayılan 0 Soru">
             <button id="hal-hatir-addQuestion">Soru Oluştur</button>
-
         </div>
-
+        <!-- -- Menu Selamlaşma Vedalaşma Soruları -- -->
         <div class="menu-item">
             <h3 class="header-text">Selamlaşma Vedalaşma Soruları</h3>
-
             <div class="soru-ve-cevap">
                 <input type="checkbox" name="selamlasma-vedalasma-soru-ve-cevap" id="selamlasma-vedalasma-soru-ve-cevap" checked>
                 <label for="selamlasma-vedalasma-soru-ve-cevap">Soru veya Cevap</label>
             </div>
-
             <div class="sadece-soru">
                 <input type="checkbox" name="selamlasma-vedalasma-sadece-soru" id="selamlasma-vedalasma-sadece-soru">
                 <label for="selamlasma-vedalasma-sadece-soru">Sadece Soru</label>
             </div>
-
             <input class="textbox-input" type="text" name="selamlasma-vedalasma-soru-adet" id="selamlasma-vedalasma-soru-adet" placeholder="Varsayılan 0 Soru">
             <button id="selamlasma-vedalasma-addQuestion">Soru Oluştur</button>
-
         </div>
-
+        <!-- -- Menu Tanışma, İsim ve Memleket Soruları -- -->
         <div class="menu-item">
             <h3 class="header-text">Tanışma, İsim ve Memleket Soruları</h3>
-
             <div class="soru-ve-cevap">
                 <input type="checkbox" name="tanisma-memleket-yer-soru-ve-cevap" id="tanisma-memleket-yer-soru-ve-cevap" checked>
                 <label for="tanisma-memleket-yer-soru-ve-cevap">Soru veya Cevap</label>
             </div>
-
             <div class="sadece-soru">
                 <input type="checkbox" name="tanisma-memleket-yer-sadece-soru" id="tanisma-memleket-yer-sadece-soru">
                 <label for="tanisma-memleket-yer-sadece-soru">Sadece Soru</label>
             </div>
-
             <input class="textbox-input" type="text" name="tanisma-memleket-yer-soru-adet" id="tanisma-memleket-yer-soru-adet" placeholder="Varsayılan 0 Soru">
             <button id="tanisma-memleket-yer-addQuestion">Soru Oluştur</button>
-
         </div>
+        
+     </div> <!--Menu Bitiş -->
 
+    <div class="container" id="allContainer">
 
     </div>
-
-    <div class="container" id="allContainer"></div>
-    
-
     
 
     <script src="assets/js/hal-hatir.js"></script>
