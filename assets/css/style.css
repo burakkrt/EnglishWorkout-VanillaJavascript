@@ -307,6 +307,40 @@ body{
     margin-top: 4px;
 }
 
+.turkish.space-numbers-turkish{
+    
+    display: flex!important;
+}
+
+.turkish.space-numbers-turkish .space-number-item-turkish{
+
+    width: 150px;
+    color:rgba(0,0,0,0.3)!important;
+}
+
+.space-numbers{
+    
+    display: flex;
+}
+
+.space-numbers .space-number-item{
+    width: 150px;
+}
+
+@media (max-width: 576px){
+
+    .turkish.space-numbers-turkish .space-number-item-turkish{
+        color:rgba(0,0,0,0.5)!important;
+    }
+    .turkish.space-numbers-turkish .space-number-item-turkish{
+        width: 95px;
+    }
+    .space-numbers .space-number-item{
+        width: 95px;
+    }
+}
+
+
 @keyframes soruGetirAnimasyon {
     from{
         transform: scale(.5);
@@ -316,3 +350,10 @@ body{
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+

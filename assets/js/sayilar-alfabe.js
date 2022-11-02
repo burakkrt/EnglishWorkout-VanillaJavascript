@@ -1,25 +1,6 @@
 const sayilarAlfabeSorular = [
-    {id:0, soru:"Zero, Three", cevap:"0, 3", soruTurkce:"Zirou, Tıri", cevapTurkce:""},
-    {id:1, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:2, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:3, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:4, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:5, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:6, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:7, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:8, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:9, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:10, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:11, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:12, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:13, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:14, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:15, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:16, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:17, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:18, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:19, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:20, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:0, soru:"Seventy-three, Seventy-seven, one-hundred", cevap:"0, 3", soruTurkce:"sevıntiin, Seventy-seven, van handırıd", cevapTurkce:""},
+    
 
 ];
 
@@ -90,6 +71,18 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
 
+
+
+    const splitSoruArray = sayilarAlfabeSorular[0].soru.replace(" ","").split(",");
+    let splitSoruContent = ``;
+    splitSoruArray.map ( (soru) => { splitSoruContent += `<span class="space-number-item">${soru}</span>` });
+
+    const turkishSplitSoruArray = sayilarAlfabeSorular[0].soruTurkce.replace(" ","").split(",");
+    let turkishSplitSoruContent = ``;
+    turkishSplitSoruArray.map( (turkishSoru) => { turkishSplitSoruContent += `<span class="space-number-item-turkish">${turkishSoru}</span>` })
+
+
+
     // ------------- Cevap Bilinmiyor İse ---------------
     if(randomQuestionOrAnswer == 0){
         document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
@@ -101,8 +94,8 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
             <div class="soru">
                 <span class="material-symbols-outlined soru-icon">quiz</span>
                 <div class="soru-content" id="soru-content">
-                ${question.soru}
-                <span class="turkish">${question.soruTurkce}</span>
+                <span class="space-numbers">${splitSoruContent}</span>
+                <span class="turkish space-numbers-turkish">${turkishSplitSoruContent}</span>
                 </div>
             </div>
             <div class="cevap">
@@ -130,7 +123,7 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
                 <span class="material-symbols-outlined soru-icon">quiz</span>
                 <div class="soru-content" id="soru-content">
                 <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
-                <span class="turkish">${question.soruTurkce}</span>
+                <span class="turkish"></span>
                 </div>
             </div>
             <div class="cevap">
