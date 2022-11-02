@@ -1,25 +1,25 @@
 const sayilarAlfabeSorular = [
-    {id:0, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:1, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:2, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:3, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:4, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:5, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:6, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:7, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:8, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:9, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:10, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:11, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:12, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:13, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:14, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:15, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:16, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:17, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:18, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:19, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
-    {id:20, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:0, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:1, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:2, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:3, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:4, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:5, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:6, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:7, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:8, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:9, soru:"", cevap:"", soruTurkce:"", cevapTurkce:"", type:"sayi"},
+    {id:10, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:11, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:12, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:13, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:14, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:15, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:16, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:17, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:18, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:19, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:20, soru:"", cevap:"", soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
 
 ];
 
@@ -90,93 +90,151 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
 
-    // -- Soruları ve Türkçe söyleyişlerini harf uzunluğunun katları olarak hesaplayıp width değerine yazdırma. --
-    let widthPixel = [];
+    // ------ Soru Tipine Göre Soru Oluşturma ------
+    if(question.type == "sayi"){
 
-    const splitSoruArray = sayilarAlfabeSorular[0].soru.replace(" ","").split(",");
-    let splitSoruContent = ``;
-    
-    const turkishSplitSoruArray = sayilarAlfabeSorular[0].soruTurkce.replace(" ","").split(",");
-    let turkishSplitSoruContent = ``;
+        // -- Soruları ve Türkçe söyleyişlerini harf uzunluğunun katları olarak hesaplayıp width değerine yazdırma. --
+        let widthPixel = [];
 
-    splitSoruArray.map ( (soru) => { 
-        // Eğer Mobil 'de değilse genişlik çarpanlarını daha fazla ver.
-        if(window.matchMedia("(min-width: 1360px)").matches){
+        const splitSoruArray = sayilarAlfabeSorular[0].soru.replace(" ","").split(",");
+        let splitSoruContent = ``;
+        
+        const turkishSplitSoruArray = sayilarAlfabeSorular[0].soruTurkce.replace(" ","").split(",");
+        let turkishSplitSoruContent = ``;
 
-            if(soru.length <= 13 && soru.length > 7) widthPixel.push((soru.length) * 13);
-            else if(soru.length <= 7 && soru.length > 5) widthPixel.push((soru.length) * 35);
-            else if(soru.length < 5) widthPixel.push((soru.length) * 40);
-            else widthPixel.push((soru.length) * 12);
+        splitSoruArray.map ( (soru) => { 
+            // Eğer Mobil 'de değilse genişlik çarpanlarını daha fazla ver.
+            if(window.matchMedia("(min-width: 1360px)").matches){
+
+                if(soru.length <= 13 && soru.length > 7) widthPixel.push((soru.length) * 13);
+                else if(soru.length <= 7 && soru.length > 5) widthPixel.push((soru.length) * 27);
+                else if(soru.length < 5) widthPixel.push((soru.length) * 40);
+                else widthPixel.push((soru.length) * 12);
+            }
+            else {
+
+                if(soru.length < 10) widthPixel.push((soru.length) * 11);
+                else widthPixel.push((soru.length) * 9); 
+            }
+        });
+
+        for(let i = 0 ; i < splitSoruArray.length ; i ++){
+            
+            splitSoruContent += `<span style="width: ${widthPixel[i]}px;">${splitSoruArray[i]}</span>`;
+            turkishSplitSoruContent += `<span style="width: ${widthPixel[i]}px;">${turkishSplitSoruArray[i]}</span>`;
         }
-        else {
 
-            if(soru.length < 10) widthPixel.push((soru.length) * 11);
-            else widthPixel.push((soru.length) * 9); 
-        }
-
-        
-        
-    });
-
-    for(let i = 0 ; i < splitSoruArray.length ; i ++){
-        
-        splitSoruContent += `<span style="width: ${widthPixel[i]}px;">${splitSoruArray[i]}</span>`;
-        turkishSplitSoruContent += `<span style="width: ${widthPixel[i]}px;">${turkishSplitSoruArray[i]}</span>`;
-    }
-
-    // ------------- Cevap Bilinmiyor İse ---------------
-    if(randomQuestionOrAnswer == 0){
-        document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-        `
-        <section class="soru-item" id="${randomSoruID}">
-            <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},true)">check</span>
-            </div>
-            <div class="soru">
-                <span class="material-symbols-outlined soru-icon">quiz</span>
-                <div class="soru-content" id="soru-content">
-                <span class="space-numbers">${splitSoruContent}</span>
-                <span class="turkish space-numbers-turkish">${turkishSplitSoruContent}</span>
+        // ------------- Cevap Bilinmiyor İse ---------------
+        if(randomQuestionOrAnswer == 0){
+            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+            `
+            <section class="soru-item" id="${randomSoruID}">
+                <div class="settings">
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},true)">check</span>
                 </div>
-            </div>
-            <div class="cevap">
-                <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                <div class="cevap-content" id="cevap-content">
+                <div class="soru">
+                    <span class="material-symbols-outlined soru-icon">quiz</span>
+                    <div class="soru-content" id="soru-content">
+                    <span class="space-numbers">${splitSoruContent}</span>
+                    <span class="turkish space-numbers-turkish">${turkishSplitSoruContent}</span>
+                    </div>
+                </div>
+                <div class="cevap">
+                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                    <div class="cevap-content" id="cevap-content">
+                        <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                        <span class="turkish">${question.cevapTurkce}</span>
+                    </div>
+                </div>
+            </section>
+            `
+            );
+        }
+
+        // ------------- Soru Bilinmiyor İse ---------------
+        if(randomQuestionOrAnswer == 1){
+
+            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+            `
+            <section class="soru-item" id="${randomSoruID}">
+                <div class="settings">
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},false)">check</span>
+                </div>
+                <div class="soru">
+                    <span class="material-symbols-outlined soru-icon">quiz</span>
+                    <div class="soru-content" id="soru-content">
                     <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                    <span class="turkish"></span>
+                    </div>
+                </div>
+                <div class="cevap">
+                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                    <div class="cevap-content" id="cevap-content">
+                    ${question.cevap}
                     <span class="turkish">${question.cevapTurkce}</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        `
-        );
+            </section>
+            `
+            );
+        }
     }
+    else if (question.type == "alfabe"){
 
-    // ------------- Soru Bilinmiyor İse ---------------
-    if(randomQuestionOrAnswer == 1){
+        // ------------- Cevap Bilinmiyor İse ---------------
+        if(randomQuestionOrAnswer == 0){
+            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+            `
+            <section class="soru-item" id="${randomSoruID}">
+                <div class="settings">
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},true)">check</span>
+                </div>
+                <div class="soru">
+                    <span class="material-symbols-outlined soru-icon">quiz</span>
+                    <div class="soru-content" id="soru-content">
+                    ${question.soru}
+                    <span class="turkish">${question.soruTurkce}</span>
+                    </div>
+                </div>
+                <div class="cevap">
+                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                    <div class="cevap-content" id="cevap-content">
+                        <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                        <span class="turkish">${question.cevapTurkce}</span>
+                    </div>
+                </div>
+            </section>
+            `
+            );
+        }
 
-        document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-        `
-        <section class="soru-item" id="${randomSoruID}">
-            <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},false)">check</span>
-            </div>
-            <div class="soru">
-                <span class="material-symbols-outlined soru-icon">quiz</span>
-                <div class="soru-content" id="soru-content">
-                <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
-                <span class="turkish"></span>
+        // ------------- Soru Bilinmiyor İse ---------------
+        if(randomQuestionOrAnswer == 1){
+
+            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+            `
+            <section class="soru-item" id="${randomSoruID}">
+                <div class="settings">
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName3}(${question.id},${randomSoruID},false)">check</span>
                 </div>
-            </div>
-            <div class="cevap">
-                <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                <div class="cevap-content" id="cevap-content">
-                ${question.cevap}
-                <span class="turkish">${question.cevapTurkce}</span>
+                <div class="soru">
+                    <span class="material-symbols-outlined soru-icon">quiz</span>
+                    <div class="soru-content" id="soru-content">
+                    <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                    <span class="turkish"></span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        `
-        );
+                <div class="cevap">
+                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                    <div class="cevap-content" id="cevap-content">
+                    ${question.cevap}
+                    <span class="turkish">${question.cevapTurkce}</span>
+                    </div>
+                </div>
+            </section>
+            `
+            );
+        }
     }
 
     // Soru oluşturulduktan sonra sonuncu sorunun içerisindeki inputa odaklan.
@@ -198,6 +256,7 @@ function sayilarAlfabeAnswerCheck(soruID, elementSoruID, questType){
 
     const question = sayilarAlfabeSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
+    console.log(answer);
 
     if(answer){
         // --Cevap bilinmiyor ise--
