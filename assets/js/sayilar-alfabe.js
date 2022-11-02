@@ -1,6 +1,25 @@
 const sayilarAlfabeSorular = [
-    {id:0, soru:"Seventy-three, Seventy-seven, one-hundred", cevap:"0, 3", soruTurkce:"sevıntiin, Seventy-seven, van handırıd", cevapTurkce:""},
-    
+    {id:0, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:1, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:2, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:3, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:4, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:5, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:6, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:7, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:8, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:9, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:10, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:11, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:12, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:13, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:14, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:15, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:16, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:17, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:18, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:19, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
+    {id:20, soru:"", cevap:"", soruTurkce:"", cevapTurkce:""},
 
 ];
 
@@ -71,17 +90,39 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
 
-
+    // -- Soruları ve Türkçe söyleyişlerini harf uzunluğunun katları olarak hesaplayıp width değerine yazdırma. --
+    let widthPixel = [];
 
     const splitSoruArray = sayilarAlfabeSorular[0].soru.replace(" ","").split(",");
     let splitSoruContent = ``;
-    splitSoruArray.map ( (soru) => { splitSoruContent += `<span class="space-number-item">${soru}</span>` });
-
+    
     const turkishSplitSoruArray = sayilarAlfabeSorular[0].soruTurkce.replace(" ","").split(",");
     let turkishSplitSoruContent = ``;
-    turkishSplitSoruArray.map( (turkishSoru) => { turkishSplitSoruContent += `<span class="space-number-item-turkish">${turkishSoru}</span>` })
 
+    splitSoruArray.map ( (soru) => { 
+        // Eğer Mobil 'de değilse genişlik çarpanlarını daha fazla ver.
+        if(window.matchMedia("(min-width: 1360px)").matches){
 
+            if(soru.length <= 13 && soru.length > 7) widthPixel.push((soru.length) * 13);
+            else if(soru.length <= 7 && soru.length > 5) widthPixel.push((soru.length) * 35);
+            else if(soru.length < 5) widthPixel.push((soru.length) * 40);
+            else widthPixel.push((soru.length) * 12);
+        }
+        else {
+
+            if(soru.length < 10) widthPixel.push((soru.length) * 11);
+            else widthPixel.push((soru.length) * 9); 
+        }
+
+        
+        
+    });
+
+    for(let i = 0 ; i < splitSoruArray.length ; i ++){
+        
+        splitSoruContent += `<span style="width: ${widthPixel[i]}px;">${splitSoruArray[i]}</span>`;
+        turkishSplitSoruContent += `<span style="width: ${widthPixel[i]}px;">${turkishSplitSoruArray[i]}</span>`;
+    }
 
     // ------------- Cevap Bilinmiyor İse ---------------
     if(randomQuestionOrAnswer == 0){
