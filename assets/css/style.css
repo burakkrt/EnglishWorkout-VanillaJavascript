@@ -307,15 +307,6 @@ body{
     margin-top: 4px;
 }
 
-.turkish.space-numbers-turkish{
-    
-    display: flex!important;
-}
-
-.space-numbers{
-    
-    display: flex;
-}
 
 
 @keyframes soruGetirAnimasyon {
