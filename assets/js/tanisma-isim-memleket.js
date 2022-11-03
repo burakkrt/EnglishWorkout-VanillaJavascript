@@ -12,6 +12,10 @@ const tanismaYerSorular = [
     {id:10, soru:"I am from Turkey, how about you ?", cevap:"I am from Canada.", soruTurkce:"Türkiyeliyim, sen nerelisin ?", cevapTurkce:"Ben Kanadalıyım."},
     {id:11, soru:"Where do you live ?", cevap:"I live in İstanbul, and you ?", soruTurkce:"Nerede yaşıyorsun ?(veer du yu liv)", cevapTurkce:"İstanbul 'da yaşıyorum, ya sen ?"},
     {id:12, soru:"Are you from England ?", cevap:"No. I am not. And you ?", soruTurkce:"İngiltere 'den misin ?", cevapTurkce:"Hayır, değilim. Ya sen ?"},
+    {id:13, soru:"How old are you ?", cevap:"I am 15 years old.", soruTurkce:"Kaç yaşındasın ?", cevapTurkce:"Ben 15 yaşındayım."},
+    {id:14, soru:"How old is she ?", cevap:"She is 20 years old.", soruTurkce:"O (kız) kaç yaşında ?", cevapTurkce:"O (kız) 20 yaşında."},
+    {id:15, soru:"How old is your fater ?", cevap:"My father is 40 years old.", soruTurkce:"Baban kaç yaşında ?", cevapTurkce:"Babam 40 yaşında (veya He/She is)"},
+    {id:16, soru:"How old is your mother ?", cevap:"She is 40 years old.", soruTurkce:"Annen kaç yaşında ?", cevapTurkce:"O (kız) 40 yaşında (veya My mother)"},
 
 ];
 
