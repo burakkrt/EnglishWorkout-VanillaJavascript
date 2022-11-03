@@ -20,8 +20,6 @@ const halHatirSorular = [
 
 ];
 
-const answerCheckFunctionName0 = "halHatirAnswerCheck";
-// ÖNEMLİ NOT = Yukarıdaki string degeri 161. satırdaki function adına ver.
 
 const soruCevapCheckboxID0 = "hal-hatir-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID0 = "hal-hatir-sadece-soru";    //Checkbox sadece soru id
@@ -46,7 +44,8 @@ document.getElementById(sadeceSoruCheckboxID0).addEventListener("click", () =>{
 
 // ------------ Soru Oluşturma Button -----------
 document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
-
+    //Soru sayısını kontrol etme degiskeni
+    let soruAdetiCheck = true;
     // Soru adeti sadece sayılar dan mı oluşuyor kontrol et.
     let stringCheckBoolen = false;
     var allStringChars = ' !"#$%&\'()*+,-./:;<=>?@ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ[\\]^_`abcçdefgğhıijklmnoöpqrsştuüvwxyz{|}~';
@@ -71,155 +70,98 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
         document.getElementById(soruAdetTextBoxID0).removeAttribute("style");
         //En fazla 100 soru getir (Hatalı giriş ve çökmeleri önlemek için)
         if(document.getElementById(soruAdetTextBoxID0).value <= 100) soruSayisi = document.getElementById(soruAdetTextBoxID0).value;
-        else document.getElementById(soruAdetTextBoxID0).style = "border: 1px solid red!important;";
+        else {
+            document.getElementById(soruAdetTextBoxID0).style = "border: 1px solid red!important;";
+            message("Tek seferde en fazla 100 soru oluşturabilirsin.");
+            soruAdetiCheck = false;
+        }
     }
 
     // -------------- Soru oluşturma bölümü ----------------
 
-    for(let i = 0; i < soruSayisi ; i++){
+    if(soruAdetiCheck){
+        for(let i = 0; i < soruSayisi ; i++){
 
-    // --Random Numbers--
-    let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
-    const randomQuestionNumber = Math.floor(Math.random() * halHatirSorular.length);
-    
-    // --Random Question ID and Random Question--
-    const randomSoruID = Math.floor(Math.random() * 100000001);
-    const question = halHatirSorular[randomQuestionNumber];
-
-    // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
-    if(soruTipi == false) randomQuestionOrAnswer = 0;
-
-    // ------------- Cevap Bilinmiyor İse ---------------
-    if(randomQuestionOrAnswer == 0){
-        document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-        `
-        <section class="soru-item" id="${randomSoruID}">
-            <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName0}(${question.id},${randomSoruID},true)">check</span>
-            </div>
-            <div class="soru">
-                <span class="material-symbols-outlined soru-icon">quiz</span>
-                <div class="soru-content" id="soru-content">
-                ${question.soru}
-                <span class="turkish">${question.soruTurkce}</span>
-                </div>
-            </div>
-            <div class="cevap">
-                <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                <div class="cevap-content" id="cevap-content">
-                    <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
-                    <span class="turkish">${question.cevapTurkce}</span>
-                </div>
-            </div>
-        </section>
-        `
-        );
+            // --Random Numbers--
+            let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
+            const randomQuestionNumber = Math.floor(Math.random() * halHatirSorular.length);
+            
+            // --Random Question ID and Random Question--
+            const randomSoruID = Math.floor(Math.random() * 100000001);
+            const question = halHatirSorular[randomQuestionNumber];
+        
+            // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
+            if(soruTipi == false) randomQuestionOrAnswer = 0;
+        
+            // ------------- Cevap Bilinmiyor İse ---------------
+            if(randomQuestionOrAnswer == 0){
+                document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+                `
+                <section class="soru-item" id="${randomSoruID}">
+                    <div class="settings">
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                    </div>
+                    <div class="soru">
+                        <span class="material-symbols-outlined soru-icon">quiz</span>
+                        <div class="soru-content" id="soru-content">
+                        ${question.soru}
+                        <span class="turkish">${question.soruTurkce}</span>
+                        </div>
+                    </div>
+                    <div class="cevap">
+                        <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                        <div class="cevap-content" id="cevap-content">
+                            <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                            <span class="turkish">${question.cevapTurkce}</span>
+                        </div>
+                    </div>
+                </section>
+                `
+                );
+            }
+        
+            // ------------- Soru Bilinmiyor İse ---------------
+            if(randomQuestionOrAnswer == 1){
+        
+                document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+                `
+                <section class="soru-item" id="${randomSoruID}">
+                    <div class="settings">
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                    </div>
+                    <div class="soru">
+                        <span class="material-symbols-outlined soru-icon">quiz</span>
+                        <div class="soru-content" id="soru-content">
+                        <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                        <span class="turkish">${question.soruTurkce}</span>
+                        </div>
+                    </div>
+                    <div class="cevap">
+                        <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                        <div class="cevap-content" id="cevap-content">
+                        ${question.cevap}
+                        <span class="turkish">${question.cevapTurkce}</span>
+                        </div>
+                    </div>
+                </section>
+                `
+                );
+            }
+        
+            }
+        
+            // Oluşturulan soru adetini ekrana yaz.
+            message(document.getElementById(soruAdetTextBoxID0).value + " adet soru oluşturuldu.")
+        
+            // İşlem sonunda soru adeti textbox ını temizle.
+            document.getElementById(soruAdetTextBoxID0).value = "";
+        
+            //Yeni soru oluşturulduğunda, doğru yanlış sonuçlarını güncelle yazdır.
+            sonuclariHesapla();        
     }
 
-    // ------------- Soru Bilinmiyor İse ---------------
-    if(randomQuestionOrAnswer == 1){
-
-        document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-        `
-        <section class="soru-item" id="${randomSoruID}">
-            <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName0}(${question.id},${randomSoruID},false)">check</span>
-            </div>
-            <div class="soru">
-                <span class="material-symbols-outlined soru-icon">quiz</span>
-                <div class="soru-content" id="soru-content">
-                <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
-                <span class="turkish">${question.soruTurkce}</span>
-                </div>
-            </div>
-            <div class="cevap">
-                <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                <div class="cevap-content" id="cevap-content">
-                ${question.cevap}
-                <span class="turkish">${question.cevapTurkce}</span>
-                </div>
-            </div>
-        </section>
-        `
-        );
-    }
-
-    // Soru oluşturulduktan sonra sonuncu sorunun içerisindeki inputa odaklan.
-    // document.getElementById(randomSoruID).querySelector("input").focus();
-
-    // İşlem sonunda soru adeti textbox ını temizle.
-    document.getElementById(soruAdetTextBoxID0).value = "";
-
-    //Yeni soru oluşturulduğunda, doğru yanlış sonuçlarını güncelle yazdır.
-    sonuclariHesapla();
-
-    }
-    
 });
 
-// ------------- Cevap Kontrol ---------------
-// questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function halHatirAnswerCheck(soruID, elementSoruID, questType){
-
-    const question = halHatirSorular[soruID];
-    const answer = document.getElementById(elementSoruID).querySelector("input").value;
-
-    if(answer){
-        // --Cevap bilinmiyor ise--
-        if(questType == true){
-
-            if(answer.replace(/[.,!?' ]/g,'').toLowerCase() == question.cevap.replace(/[.,!?' ]/g,'').toLowerCase()){
-                document.getElementById(elementSoruID).classList.add("true");
-                // --Eğer cevap doğru ise textbox 'ı kaldırıp yerine sorunun diziden cevabını koy.
-                const cevapContentHTML = document.getElementById(elementSoruID).querySelector(".cevap .cevap-content");
-                cevapContentHTML.querySelector("input").remove();
-                let oldInner = cevapContentHTML.innerHTML;
-                cevapContentHTML.innerHTML = "";
-                cevapContentHTML.innerHTML += `<span>${question.cevap}</span>`;
-                cevapContentHTML.innerHTML += oldInner;
-            }
-            else {
-                document.getElementById(elementSoruID).classList.add("false");
-                document.getElementById(elementSoruID).querySelector("input").parentElement.style = "color: #9A1663;"
-                document.getElementById(elementSoruID).querySelector("input").parentElement.innerHTML = 
-                `
-                ${answer}
-                (<span style="color: green;">${question.cevap}</span>)
-                <span class="turkish">${question.cevapTurkce}</span>
-                `;
-                
-            }
-        }
-        // --Soru bilinmiyor ise--
-        else if (questType == false){
-
-            if(answer.replace(/[.,!?' ]/g,'').toLowerCase() == question.soru.replace(/[.,!?' ]/g,'').toLowerCase()){
-                document.getElementById(elementSoruID).classList.add("true");
-                // --Eğer cevap doğru ise textbox 'ı kaldırıp yerine sorunun diziden cevabını koy.
-                const cevapContentHTML = document.getElementById(elementSoruID).querySelector(".soru .soru-content");
-                cevapContentHTML.querySelector("input").remove();
-                let oldInner = cevapContentHTML.innerHTML;
-                cevapContentHTML.innerHTML = "";
-                cevapContentHTML.innerHTML += `<span>${question.soru}</span>`;
-                cevapContentHTML.innerHTML += oldInner;
-            }
-            else {
-                document.getElementById(elementSoruID).classList.add("false");
-                document.getElementById(elementSoruID).querySelector("input").parentElement.style = "color: #9A1663;"
-                document.getElementById(elementSoruID).querySelector("input").parentElement.innerHTML = 
-                `
-                ${answer}
-                (<span style="color: green;">${question.soru}</span>)
-                <span class="turkish">${question.soruTurkce}</span>
-                `;
-            }
-        }
-    }
-    else document.getElementById(elementSoruID).querySelector("input").style = "border: 1px solid red;";
-    
-    //Her cevap girildiğinde, doğru yanlış sonuçlarını güncelle yazdır.
-    sonuclariHesapla();
-}
 
 // input keypress Enter
 function keyPressEnter(event){

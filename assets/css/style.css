@@ -333,7 +333,30 @@ body{
 
 
 
+.message-box{
 
+    display: inline-block;
+    position: absolute;
+    z-index: 11;
+    transform: translateX(100%);
+    bottom: 4%;
+    right: 0;
+    transition-duration: 500ms;
 
+    border: 1px solid black;
+}
 
+.message-box .message-content{
+
+}
+
+.message-box.passive{
+
+    transform: translateX(100%);
+}
+
+.message-box.active{
+
+    transform: translateX(0%);
+}
 
