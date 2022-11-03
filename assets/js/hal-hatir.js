@@ -151,7 +151,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
             }
         
             // Oluşturulan soru adetini ekrana yaz.
-            message(document.getElementById(soruAdetTextBoxID0).value + " adet soru oluşturuldu.")
+            message(soruSayisi + " adet soru oluşturuldu.")
         
             // İşlem sonunda soru adeti textbox ını temizle.
             document.getElementById(soruAdetTextBoxID0).value = "";

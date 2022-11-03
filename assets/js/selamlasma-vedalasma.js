@@ -82,78 +82,79 @@ document.getElementById(soruOlusturButtonID).addEventListener("click", () =>{
 
         for(let i = 0; i < soruSayisi ; i++){
 
-        // --Random Numbers--
-        let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
-        const randomQuestionNumber = Math.floor(Math.random() * selamlasmaVedalasmaSorular.length);
-        
-        // --Random Question ID and Random Question--
-        const randomSoruID = Math.floor(Math.random() * 100000001);
-        const question = selamlasmaVedalasmaSorular[randomQuestionNumber];
+            // --Random Numbers--
+            let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
+            const randomQuestionNumber = Math.floor(Math.random() * selamlasmaVedalasmaSorular.length);
+            
+            // --Random Question ID and Random Question--
+            const randomSoruID = Math.floor(Math.random() * 100000001);
+            const question = selamlasmaVedalasmaSorular[randomQuestionNumber];
 
-        // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
-        if(soruTipi == false) randomQuestionOrAnswer = 0;
+            // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
+            if(soruTipi == false) randomQuestionOrAnswer = 0;
 
-        // ------------- Cevap Bilinmiyor İse ---------------
-        if(randomQuestionOrAnswer == 0){
-            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-            `
-            <section class="soru-item" id="${randomSoruID}">
-                <div class="settings">
-                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
-                </div>
-                <div class="soru">
-                    <span class="material-symbols-outlined soru-icon">quiz</span>
-                    <div class="soru-content" id="soru-content">
-                    ${question.soru}
-                    <span class="turkish">${question.soruTurkce}</span>
+            // ------------- Cevap Bilinmiyor İse ---------------
+            if(randomQuestionOrAnswer == 0){
+                document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+                `
+                <section class="soru-item" id="${randomSoruID}">
+                    <div class="settings">
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
                     </div>
-                </div>
-                <div class="cevap">
-                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                    <div class="cevap-content" id="cevap-content">
+                    <div class="soru">
+                        <span class="material-symbols-outlined soru-icon">quiz</span>
+                        <div class="soru-content" id="soru-content">
+                        ${question.soru}
+                        <span class="turkish">${question.soruTurkce}</span>
+                        </div>
+                    </div>
+                    <div class="cevap">
+                        <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                        <div class="cevap-content" id="cevap-content">
+                            <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                            <span class="turkish">${question.cevapTurkce}</span>
+                        </div>
+                    </div>
+                </section>
+                `
+                );
+            }
+
+            // ------------- Soru Bilinmiyor İse ---------------
+            if(randomQuestionOrAnswer == 1){
+
+                document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
+                `
+                <section class="soru-item" id="${randomSoruID}">
+                    <div class="settings">
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                    </div>
+                    <div class="soru">
+                        <span class="material-symbols-outlined soru-icon">quiz</span>
+                        <div class="soru-content" id="soru-content">
                         <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
+                        <span class="turkish">${question.soruTurkce}</span>
+                        </div>
+                    </div>
+                    <div class="cevap">
+                        <span class="material-symbols-outlined soru-icon">record_voice_over</span>
+                        <div class="cevap-content" id="cevap-content">
+                        ${question.cevap}
                         <span class="turkish">${question.cevapTurkce}</span>
+                        </div>
                     </div>
-                </div>
-            </section>
-            `
-            );
-        }
+                </section>
+                `
+                );
+            }
 
-        // ------------- Soru Bilinmiyor İse ---------------
-        if(randomQuestionOrAnswer == 1){
-
-            document.getElementById("allContainer").insertAdjacentHTML("beforeend", 
-            `
-            <section class="soru-item" id="${randomSoruID}">
-                <div class="settings">
-                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
-                </div>
-                <div class="soru">
-                    <span class="material-symbols-outlined soru-icon">quiz</span>
-                    <div class="soru-content" id="soru-content">
-                    <input type="text" onkeypress="keyPressEnter(event)" spellcheck="false"></input>
-                    <span class="turkish">${question.soruTurkce}</span>
-                    </div>
-                </div>
-                <div class="cevap">
-                    <span class="material-symbols-outlined soru-icon">record_voice_over</span>
-                    <div class="cevap-content" id="cevap-content">
-                    ${question.cevap}
-                    <span class="turkish">${question.cevapTurkce}</span>
-                    </div>
-                </div>
-            </section>
-            `
-            );
         }
 
         // Oluşturulan soru adetini ekrana yaz.
-        message(document.getElementById(soruAdetTextBoxID).value + " adet soru oluşturuldu.")
+        message(soruSayisi + " adet soru oluşturuldu.")
 
         //Yeni soru oluşturulduğunda, doğru yanlış sonuçlarını güncelle yazdır.
         sonuclariHesapla();
-        }
 
         // İşlem sonunda soru adeti textbox ını temizle.
         document.getElementById(soruAdetTextBoxID).value = "";
