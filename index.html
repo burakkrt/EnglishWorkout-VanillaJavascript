@@ -60,7 +60,7 @@
             <input class="textbox-input" type="text" name="tanisma-memleket-yer-soru-adet" id="tanisma-memleket-yer-soru-adet" placeholder="Varsayılan 0 Soru">
             <button id="tanisma-memleket-yer-addQuestion">Soru Oluştur</button>
         </div>
-        <!-- -- Menu Sayılar veAlfabe Soruları -- -->
+        <!-- -- Menu Sayılar ve Alfabe Soruları -- -->
         <div class="menu-item">
             <h3 class="header-text">Sayılar (0-20) ve Alfabe Soruları</h3>
             <div class="soru-ve-cevap">
@@ -74,6 +74,20 @@
             <input class="textbox-input" type="text" name="sayilar-ve-alfabe-soru-adet" id="sayilar-ve-alfabe-soru-adet" placeholder="Varsayılan 0 Soru">
             <button id="sayilar-ve-alfabe-addQuestion">Soru Oluştur</button>
         </div>
+        <!-- -- Menu Gün, Hafta, Ay, Yıl ve Kişi Zamirleri Soruları -- -->
+        <div class="menu-item">
+            <h3 class="header-text">Gün, Hafta, Ay, Yıl ve Kişi Zamirleri Soruları</h3>
+            <div class="soru-ve-cevap">
+                <input type="checkbox" name="gun-ay-yil-kisi-zamirleri-soru-ve-cevap" id="gun-ay-yil-kisi-zamirleri-soru-ve-cevap" checked>
+                <label for="gun-ay-yil-kisi-zamirleri-soru-ve-cevap">Soru veya Cevap</label>
+            </div>
+            <div class="sadece-soru">
+                <input type="checkbox" name="sgun-ay-yil-kisi-zamirleri-sadece-soru" id="gun-ay-yil-kisi-zamirleri-sadece-soru">
+                <label for="gun-ay-yil-kisi-zamirleri-sadece-soru">Sadece Soru</label>
+            </div>
+            <input class="textbox-input" type="text" name="gun-ay-yil-kisi-zamirleri-soru-adet" id="gun-ay-yil-kisi-zamirleri-soru-adet" placeholder="Varsayılan 0 Soru">
+            <button id="gun-ay-yil-kisi-zamirleri-addQuestion">Soru Oluştur</button>
+        </div>
         
      </div> <!--Menu Bitiş -->
 
@@ -86,5 +100,6 @@
     <script src="assets/js/selamlasma-vedalasma.js"></script>
     <script src="assets/js/tanisma-isim-memleket.js"></script>
     <script src="assets/js/sayilar-alfabe.js"></script>
+    <script src="assets/js/gun-ay-yil-kisi-zamirleri.js"></script>
 </body>
 </html>
