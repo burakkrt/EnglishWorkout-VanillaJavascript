@@ -1,54 +1,38 @@
-const tanismaYerSorular = [
-    {id:0, soru:"What is your name ?", cevap:"My name is Burak.", soruTurkce:"Senin adın ne ? (What is)", cevapTurkce:"Benim adım Burak."},
-    {id:1, soru:"What's your name ?", cevap:"I am Burak, and you ?", soruTurkce:"Senin adın ne ? (What's)", cevapTurkce:"Ben Burak, ya sen ?"},
-    {id:2, soru:"What's your name ?", cevap:"My name is Burak, and yours ?", soruTurkce:"Senin adın ne ?", cevapTurkce:"Benim ismim Burak, ya seninki ?"},
-    {id:3, soru:"Hi.I am Burak. What's your name ?", cevap:"Hi. My name is Kaira. Nice to meet you.", soruTurkce:"Selam. Ben Burak. Senin adın ne ?", cevapTurkce:"Selam. Benim adım Kaira. Seninle tanışmak güzel."},
-    {id:4, soru:"Hey. My name is Kaira, and yours ?", cevap:"Hi Kaira. I am Burak. Pleased to meet you.", soruTurkce:"Selam. Benim adım Kaira, ya seninki ?", cevapTurkce:"Selam Kaira. Ben Burak. Tanıştığımıza memnun oldum. (Pilisdt tu mit yu)"},
-    {id:5, soru:"My name is Kaira.", cevap:"Glad to meet you.", soruTurkce:"Benim adım Kaira.", cevapTurkce:"Tanıştığımıza sevindim.(Gılad tu mit yu)"},
-    {id:6, soru:"I'm Burak.", cevap:"A pleasure to meet you.", soruTurkce:"Ben Burak.", cevapTurkce:"Seninle tanışmak bir zevk.(e pilejır tu mit yu)"},
-    {id:7, soru:"I am happy to meet you.", cevap:"Nice to meet you too.", soruTurkce:"Seninle tanıştığıma memnun oldum.", cevapTurkce:"Bende seninle tanıştığıma memnun oldum."},
-    {id:8, soru:"Where are you from ?", cevap:"I am from Turkey. Which city ?", soruTurkce:"Nerelisin ?", cevapTurkce:"Türkiyeliyim. Hangi şehir ?"},
-    {id:9, soru:"Are you from İstanbul ?", cevap:"Yes, I am", soruTurkce:"İstanbul 'dan mısın ?", cevapTurkce:"Evet öyleyim."},
-    {id:10, soru:"I am from Turkey, how about you ?", cevap:"I am from Canada.", soruTurkce:"Türkiyeliyim, sen nerelisin ?", cevapTurkce:"Ben Kanadalıyım."},
-    {id:11, soru:"Where do you live ?", cevap:"I live in İstanbul, and you ?", soruTurkce:"Nerede yaşıyorsun ?(veer du yu liv)", cevapTurkce:"İstanbul 'da yaşıyorum, ya sen ?"},
-    {id:12, soru:"Are you from England ?", cevap:"No. I am not. And you ?", soruTurkce:"İngiltere 'den misin ?", cevapTurkce:"Hayır, değilim. Ya sen ?"},
-    {id:13, soru:"How old are you ?", cevap:"I am 15 years old.", soruTurkce:"Kaç yaşındasın ?", cevapTurkce:"Ben 15 yaşındayım."},
-    {id:14, soru:"How old is she ?", cevap:"She is 20 years old.", soruTurkce:"O (kız) kaç yaşında ?", cevapTurkce:"O (kız) 20 yaşında."},
-    {id:15, soru:"How old is your fater ?", cevap:"My father is 40 years old.", soruTurkce:"Baban kaç yaşında ?", cevapTurkce:"Babam 40 yaşında (veya He/She is)"},
-    {id:16, soru:"How old is your mother ?", cevap:"She is 40 years old.", soruTurkce:"Annen kaç yaşında ?", cevapTurkce:"O (kız) 40 yaşında (veya My mother)"},
-
+const gunAyYilKisiZamirleriSorular = [
+    {id:0, soru:"Soru 1", cevap:"Cevap 1", soruTurkce:"", cevapTurkce:""},
+    
 ];
 
-const answerCheckFunctionName2 = "tanismaMemleketYerAnswerCheck";
+const answerCheckFunctionName4 = "gunAyYilKisiZamirleriAnswerCheck";
 // ÖNEMLİ NOT = Yukarıdaki string degeri 161. satırdaki function adına ver.
 
-const soruCevapCheckboxID2 = "gun-ay-yil-kisi-zamirleri-soru-ve-cevap";   //Checkbox soru ve cevap id
-const sadeceSoruCheckboxID2 = "gun-ay-yil-kisi-zamirleri-sadece-soru";    //Checkbox sadece soru id
+const soruCevapCheckboxID4 = "gun-ay-yil-kisi-zamirleri-soru-ve-cevap";   //Checkbox soru ve cevap id
+const sadeceSoruCheckboxID4 = "gun-ay-yil-kisi-zamirleri-sadece-soru";    //Checkbox sadece soru id
 
-const soruOlusturButtonID2 = "gun-ay-yil-kisi-zamirleri-addQuestion";     //Soru oluşturma button id
-const soruAdetTextBoxID2 = "gun-ay-yil-kisi-zamirleri-soru-adet";     //Soru adet textbox id
+const soruOlusturButtonID4 = "gun-ay-yil-kisi-zamirleri-addQuestion";     //Soru oluşturma button id
+const soruAdetTextBoxID4 = "gun-ay-yil-kisi-zamirleri-soru-adet";     //Soru adet textbox id
 
 // ------------ Checkbox Kontrol -----------
-document.getElementById(soruCevapCheckboxID2).addEventListener("click", () =>{
-    if(document.getElementById(soruCevapCheckboxID2).checked == true){
-        if(document.getElementById(sadeceSoruCheckboxID2).checked == true) document.getElementById(sadeceSoruCheckboxID2).checked = false;
+document.getElementById(soruCevapCheckboxID4).addEventListener("click", () =>{
+    if(document.getElementById(soruCevapCheckboxID4).checked == true){
+        if(document.getElementById(sadeceSoruCheckboxID4).checked == true) document.getElementById(sadeceSoruCheckboxID4).checked = false;
     }
-    else if(document.getElementById(sadeceSoruCheckboxID2).checked == false) document.getElementById(sadeceSoruCheckboxID2).checked = true;
+    else if(document.getElementById(sadeceSoruCheckboxID4).checked == false) document.getElementById(sadeceSoruCheckboxID4).checked = true;
 });
-document.getElementById(sadeceSoruCheckboxID2).addEventListener("click", () =>{
-    if(document.getElementById(sadeceSoruCheckboxID2).checked == true){
-        if(document.getElementById(soruCevapCheckboxID2).checked == true) document.getElementById(soruCevapCheckboxID2).checked = false; 
+document.getElementById(sadeceSoruCheckboxID4).addEventListener("click", () =>{
+    if(document.getElementById(sadeceSoruCheckboxID4).checked == true){
+        if(document.getElementById(soruCevapCheckboxID4).checked == true) document.getElementById(soruCevapCheckboxID4).checked = false; 
     }
-    else if(document.getElementById(soruCevapCheckboxID2).checked == false) document.getElementById(soruCevapCheckboxID2).checked = true;
+    else if(document.getElementById(soruCevapCheckboxID4).checked == false) document.getElementById(soruCevapCheckboxID4).checked = true;
 });
 
 // ------------ Soru Oluşturma Button -----------
-document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
+document.getElementById(soruOlusturButtonID4).addEventListener("click", () =>{
 
     // Soru adeti sadece sayılar dan mı oluşuyor kontrol et.
     let stringCheckBoolen = false;
     var allStringChars = ' !"#$%&\'()*+,-./:;<=>?@ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ[\\]^_`abcçdefgğhıijklmnoöpqrsştuüvwxyz{|}~';
-    for(let inputValue of document.getElementById(soruAdetTextBoxID2).value){
+    for(let inputValue of document.getElementById(soruAdetTextBoxID4).value){
         
         for(let stringChar of allStringChars){
             if(inputValue == stringChar){
@@ -60,16 +44,16 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 
     // Soru tipini al (Sadece soru ,soru veya cevap)
     let soruTipi = true;
-    if(document.getElementById(soruCevapCheckboxID2).checked == true) soruTipi = true;
+    if(document.getElementById(soruCevapCheckboxID4).checked == true) soruTipi = true;
     else soruTipi = false;
 
     // Soru adetini al
     let soruSayisi = 0;
-    if(stringCheckBoolen != true && document.getElementById(soruAdetTextBoxID2).value != ""){
-        document.getElementById(soruAdetTextBoxID2).removeAttribute("style");
+    if(stringCheckBoolen != true && document.getElementById(soruAdetTextBoxID4).value != ""){
+        document.getElementById(soruAdetTextBoxID4).removeAttribute("style");
         //En fazla 100 soru getir (Hatalı giriş ve çökmeleri önlemek için)
-        if(document.getElementById(soruAdetTextBoxID2).value <= 100) soruSayisi = document.getElementById(soruAdetTextBoxID2).value;
-        else document.getElementById(soruAdetTextBoxID2).style = "border: 1px solid red!important;";
+        if(document.getElementById(soruAdetTextBoxID4).value <= 100) soruSayisi = document.getElementById(soruAdetTextBoxID4).value;
+        else document.getElementById(soruAdetTextBoxID4).style = "border: 1px solid red!important;";
     }
 
     // -------------- Soru oluşturma bölümü ----------------
@@ -77,11 +61,11 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 
     // --Random Numbers--
     let randomQuestionOrAnswer = Math.floor(Math.random() * 2);
-    const randomQuestionNumber = Math.floor(Math.random() * tanismaYerSorular.length);
+    const randomQuestionNumber = Math.floor(Math.random() * gunAyYilKisiZamirleriSorular.length);
     
     // --Random Question ID and Random Question--
     const randomSoruID = Math.floor(Math.random() * 100000001);
-    const question = tanismaYerSorular[randomQuestionNumber];
+    const question = gunAyYilKisiZamirleriSorular[randomQuestionNumber];
 
     // --Sadece soru checkbox checked.Eğer sadece soru sorulup cevap istenecek ise.
     if(soruTipi == false) randomQuestionOrAnswer = 0;
@@ -92,7 +76,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
         `
         <section class="soru-item" id="${randomSoruID}">
             <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName2}(${question.id},${randomSoruID},true)">check</span>
+                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName4}(${question.id},${randomSoruID},true)">check</span>
             </div>
             <div class="soru">
                 <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -120,7 +104,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
         `
         <section class="soru-item" id="${randomSoruID}">
             <div class="settings">
-                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName2}(${question.id},${randomSoruID},false)">check</span>
+                <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheckFunctionName4}(${question.id},${randomSoruID},false)">check</span>
             </div>
             <div class="soru">
                 <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -145,7 +129,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
     // document.getElementById(randomSoruID).querySelector("input").focus();
 
     // İşlem sonunda soru adeti textbox ını temizle.
-    document.getElementById(soruAdetTextBoxID2).value = "";
+    document.getElementById(soruAdetTextBoxID4).value = "";
 
     //Yeni soru oluşturulduğunda, doğru yanlış sonuçlarını güncelle yazdır.
     sonuclariHesapla();
@@ -156,9 +140,9 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function tanismaMemleketYerAnswerCheck(soruID, elementSoruID, questType){
+function gunAyYilKisiZamirleriAnswerCheck(soruID, elementSoruID, questType){
 
-    const question = tanismaYerSorular[soruID];
+    const question = gunAyYilKisiZamirleriSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
 
     if(answer){
@@ -245,9 +229,9 @@ function sonuclariHesapla(){
 }
 
 // Soru sayısı textbox press Enter
-document.getElementById(soruAdetTextBoxID2).addEventListener("keypress", (event) =>{
+document.getElementById(soruAdetTextBoxID4).addEventListener("keypress", (event) =>{
     
     if(event.key == "Enter"){
-        document.getElementById(soruOlusturButtonID2).click();
+        document.getElementById(soruOlusturButtonID4).click();
     }
 })
