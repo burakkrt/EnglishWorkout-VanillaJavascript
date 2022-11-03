@@ -14,12 +14,12 @@ const sayilarAlfabeSorular = [
     {id:12, soru:"Eighteen, Sixteen, Eleven",    cevap:"18, 16, 11", soruTurkce:"Eytiin, Sikstiin, Elevın",  cevapTurkce:"", type:"sayi"},
     {id:13, soru:"Seventeen, Two, Twenty",       cevap:"17, 2, 20",  soruTurkce:"Sevıntiin, Tu, Tıventi",    cevapTurkce:"", type:"sayi"},
     {id:14, soru:"Thirteen, Three, Twelve",      cevap:"13, 3, 12",  soruTurkce:"Törtiin, Tıri, Tvelf",      cevapTurkce:"", type:"sayi"},
-    {id:15, soru:"Fiat",        cevap:"ef, ay, ey, ti",                         soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
-    {id:16, soru:"Mitsubisi",   cevap:"em, ay, ti, es, yu, bi, ay, es, ay",     soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
-    {id:17, soru:"Hygrapy",     cevap:"eyc, vay, ci, ar, ey, pi, vay",          soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
-    {id:18, soru:"Overview",    cevap:"ou, vi, i, ar, vi, ay, i, dablyu",       soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
-    {id:19, soru:"Director",    cevap:"di, ay, ar, i, si, ti, ou, ar",          soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
-    {id:20, soru:"Chief",       cevap:"si, eyc, ay, i, ef",                     soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce harfler ile yazın.", cevapTurkce:"", type:"alfabe"},
+    {id:15, soru:"Fiat",        cevap:"ef, ay, ey, ti",                         soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
+    {id:16, soru:"Mitsubisi",   cevap:"em, ay, ti, es, yu, bi, ay, es, ay",     soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
+    {id:17, soru:"Hygrapy",     cevap:"eyc, vay, ci, ar, ey, pi, vay",          soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
+    {id:18, soru:"Overview",    cevap:"ou, vi, i, ar, vi, ay, i, dablyu",       soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
+    {id:19, soru:"Director",    cevap:"di, ay, ar, i, si, ti, ou, ar",          soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
+    {id:20, soru:"Chief",       cevap:"si, eyc, ay, i, ef",                     soruTurkce:"Yukarıdaki kelimenin harflerini ingilizce okunuşu ile yazınız.", cevapTurkce:"", type:"alfabe"},
 
 ];
 
@@ -96,10 +96,10 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
         // -- Soruları ve Türkçe söyleyişlerini harf uzunluğunun katları olarak hesaplayıp width değerine yazdırma. --
         let widthPixel = [];
 
-        const splitSoruArray = sayilarAlfabeSorular[0].soru.replace(" ","").split(",");
+        const splitSoruArray = question.soru.replace(" ","").split(",");
         let splitSoruContent = ``;
         
-        const turkishSplitSoruArray = sayilarAlfabeSorular[0].soruTurkce.replace(" ","").split(",");
+        const turkishSplitSoruArray = question.soruTurkce.replace(" ","").split(",");
         let turkishSplitSoruContent = ``;
 
         splitSoruArray.map ( (soru) => { 
@@ -117,6 +117,7 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
                 else widthPixel.push((soru.length) * 9); 
             }
         });
+
 
         for(let i = 0 ; i < splitSoruArray.length ; i ++){
             
