@@ -27,14 +27,14 @@ const gunAyYilKisiZamirleriSorular = [
     
 ];
 
-const answerCheckFunctionName4 = "gunAyYilKisiZamirleriAnswerCheck";
+const answerCheckFunctionName4 = "gunAyYilAnswerCheck";
 // ÖNEMLİ NOT = Yukarıdaki string degeri 161. satırdaki function adına ver.
 
-const soruCevapCheckboxID4 = "gun-ay-yil-kisi-zamirleri-soru-ve-cevap";   //Checkbox soru ve cevap id
-const sadeceSoruCheckboxID4 = "gun-ay-yil-kisi-zamirleri-sadece-soru";    //Checkbox sadece soru id
+const soruCevapCheckboxID4 = "gun-ay-yil-soru-ve-cevap";   //Checkbox soru ve cevap id
+const sadeceSoruCheckboxID4 = "gun-ay-yil-sadece-soru";    //Checkbox sadece soru id
 
-const soruOlusturButtonID4 = "gun-ay-yil-kisi-zamirleri-addQuestion";     //Soru oluşturma button id
-const soruAdetTextBoxID4 = "gun-ay-yil-kisi-zamirleri-soru-adet";     //Soru adet textbox id
+const soruOlusturButtonID4 = "gun-ay-yil-addQuestion";     //Soru oluşturma button id
+const soruAdetTextBoxID4 = "gun-ay-yil-soru-adet";     //Soru adet textbox id
 
 // ------------ Checkbox Kontrol -----------
 document.getElementById(soruCevapCheckboxID4).addEventListener("click", () =>{
@@ -164,7 +164,7 @@ document.getElementById(soruOlusturButtonID4).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function gunAyYilKisiZamirleriAnswerCheck(soruID, elementSoruID, questType){
+function gunAyYilAnswerCheck(soruID, elementSoruID, questType){
 
     const question = gunAyYilKisiZamirleriSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
