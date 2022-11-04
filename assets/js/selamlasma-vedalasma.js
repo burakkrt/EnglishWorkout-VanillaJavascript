@@ -239,20 +239,6 @@ function keyPressEnter(event){
     }
 }
 
-// Toplam soru, Doğru, Yanlış, Boş hesaplama ve yazdırma fonksiyonu
-function sonuclariHesapla(){
-
-    document.querySelector("#result").innerHTML = "";
-
-    //Sonuçları yazdır
-    document.querySelector("#result").insertAdjacentHTML("beforeend", 
-    `
-    <h4>Toplam Soru : <span class="toplam-soru">${document.getElementsByClassName("soru-item").length}</span></h4>
-    <h4>Doğru : <span class="toplam-dogru">${document.getElementsByClassName("true").length}</span></h4>
-    <h4>Yanlış : <span class="toplam-yanlis">${document.getElementsByClassName("false").length}</span></h4>
-    <h4>Boş : <span class="toplam-bos">${document.getElementsByClassName("soru-item").length - (document.getElementsByClassName("true").length + document.getElementsByClassName("false").length)}</span></h4>
-    `);
-}
 
 // Soru sayısı textbox press Enter
 document.getElementById("selamlasma-vedalasma-soru-adet").addEventListener("keypress", (event) =>{
