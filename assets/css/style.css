@@ -343,11 +343,16 @@ body{
     right: 0;
     transition-duration: 500ms;
 
-    border: 1px solid black;
+    padding: 9px 18px;
+    background-image: linear-gradient(rgb(158, 118, 118), rgb(129, 91, 91));
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    box-shadow: rgb(0, 0, 0, 0.5) 0 0 7px;
 }
 
 .message-box .message-content{
 
+    color: #EDEDED;
 }
 
 .message-box.passive{
@@ -360,3 +365,9 @@ body{
     transform: translateX(0%);
 }
 
+@media (max-width: 720px){
+
+    .message-box{
+        display: none;
+    }
+}

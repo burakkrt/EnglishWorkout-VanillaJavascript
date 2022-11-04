@@ -1,36 +1,4 @@
 
-
-
-
-
-
-function message(messageValue = String){
-
-    const messageBoxHtmlDocument = document.getElementById("message-box");
-    const messageHtmlDocument = document.getElementById("message-content");
-    const message = messageValue;
-    
-    if(messageBoxHtmlDocument.getAttribute("class").includes("passive")){
-        messageBoxHtmlDocument.classList.replace("passive","active");
-        messageHtmlDocument.textContent = message;
-    }
-    else {
-        messageBoxHtmlDocument.classList.add("active");
-        messageHtmlDocument.textContent = message;
-    }
-    
-        
-    
-    setTimeout(() => {
-    
-    if(messageBoxHtmlDocument.getAttribute("class").includes("active")){
-        messageBoxHtmlDocument.classList.remove("active");
-        messageBoxHtmlDocument.classList.add("passive");
-    }
-    }, 3000);
-
-}
-
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
 function answerCheck(soruID, elementSoruID, questType){
@@ -93,4 +61,32 @@ function answerCheck(soruID, elementSoruID, questType){
     
     //Her cevap girildiğinde, doğru yanlış sonuçlarını güncelle yazdır.
     sonuclariHesapla();
+}
+
+// ------------- Message Box ---------------
+function message(messageValue = String){
+
+    const messageBoxHtmlDocument = document.getElementById("message-box");
+    const messageHtmlDocument = document.getElementById("message-content");
+    const message = messageValue;
+    
+    if(messageBoxHtmlDocument.getAttribute("class").includes("passive")){
+        messageBoxHtmlDocument.classList.replace("passive","active");
+        messageHtmlDocument.textContent = message;
+    }
+    else {
+        messageBoxHtmlDocument.classList.add("active");
+        messageHtmlDocument.textContent = message;
+    }
+    
+        
+    
+    setTimeout(() => {
+    
+    if(messageBoxHtmlDocument.getAttribute("class").includes("active")){
+        messageBoxHtmlDocument.classList.remove("active");
+        messageBoxHtmlDocument.classList.add("passive");
+    }
+    }, 2000);
+
 }
