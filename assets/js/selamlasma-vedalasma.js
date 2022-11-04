@@ -21,6 +21,8 @@ const selamlasmaVedalasmaSorular = [
 
 ];
 
+const answerCheck1 = "selamlasmaVedalasmaAnswerCheck";
+
 const soruCevapCheckboxID = "selamlasma-vedalasma-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID = "selamlasma-vedalasma-sadece-soru";    //Checkbox sadece soru id
 
@@ -99,7 +101,7 @@ document.getElementById(soruOlusturButtonID).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck1}(${question.id},${randomSoruID},true)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -127,7 +129,7 @@ document.getElementById(soruOlusturButtonID).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck1}(${question.id},${randomSoruID},false)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -164,7 +166,7 @@ document.getElementById(soruOlusturButtonID).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function answerCheck(soruID, elementSoruID, questType){
+function selamlasmaVedalasmaAnswerCheck(soruID, elementSoruID, questType){
 
     const question = selamlasmaVedalasmaSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;

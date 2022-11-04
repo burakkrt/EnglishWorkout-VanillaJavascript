@@ -23,7 +23,7 @@ const sayilarAlfabeSorular = [
 
 ];
 
-
+const answerCheck3 = "sayilarAlfabeAnswerCheck";
 
 const soruCevapCheckboxID3 = "sayilar-ve-alfabe-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID3 = "sayilar-ve-alfabe-sadece-soru";    //Checkbox sadece soru id
@@ -103,7 +103,7 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
             `
             <section class="soru-item" id="${randomSoruID}">
                 <div class="settings">
-                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck3}(${question.id},${randomSoruID},true)">check</span>
                 </div>
                 <div class="soru">
                     <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -131,7 +131,7 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
             `
             <section class="soru-item" id="${randomSoruID}">
                 <div class="settings">
-                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                    <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck3}(${question.id},${randomSoruID},false)">check</span>
                 </div>
                 <div class="soru">
                     <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -167,12 +167,11 @@ document.getElementById(soruOlusturButtonID3).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function answerCheck(soruID, elementSoruID, questType){
+function sayilarAlfabeAnswerCheck(soruID, elementSoruID, questType){
 
     const question = sayilarAlfabeSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;
-    console.log(answer);
-
+    
     if(answer){
         // --Cevap bilinmiyor ise--
         if(questType == true){

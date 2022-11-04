@@ -19,6 +19,7 @@ const tanismaYerSorular = [
 
 ];
 
+const answerCheck2 = "tanismaMemleketAnswerCheck";
 
 const soruCevapCheckboxID2 = "tanisma-memleket-yer-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID2 = "tanisma-memleket-yer-sadece-soru";    //Checkbox sadece soru id
@@ -97,7 +98,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck2}(${question.id},${randomSoruID},true)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -125,7 +126,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck2}(${question.id},${randomSoruID},false)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -160,7 +161,7 @@ document.getElementById(soruOlusturButtonID2).addEventListener("click", () =>{
 
 // ------------- Cevap Kontrol ---------------
 // questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
-function answerCheck(soruID, elementSoruID, questType){
+function tanismaMemleketAnswerCheck(soruID, elementSoruID, questType){
 
     const question = tanismaYerSorular[soruID];
     const answer = document.getElementById(elementSoruID).querySelector("input").value;

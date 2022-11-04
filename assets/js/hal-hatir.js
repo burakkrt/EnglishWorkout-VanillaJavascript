@@ -20,6 +20,7 @@ const halHatirSorular = [
 
 ];
 
+const answerCheck0 = "halHatirAnswerCheck";
 
 const soruCevapCheckboxID0 = "hal-hatir-soru-ve-cevap";   //Checkbox soru ve cevap id
 const sadeceSoruCheckboxID0 = "hal-hatir-sadece-soru";    //Checkbox sadece soru id
@@ -99,7 +100,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},true)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck0}(${question.id},${randomSoruID},true)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -127,7 +128,7 @@ document.getElementById(soruOlusturButtonID0).addEventListener("click", () =>{
                 `
                 <section class="soru-item" id="${randomSoruID}">
                     <div class="settings">
-                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="answerCheck(${question.id},${randomSoruID},false)">check</span>
+                        <span class="material-symbols-outlined settings-icon trueOrFalseCheck" onclick="${answerCheck0}(${question.id},${randomSoruID},false)">check</span>
                     </div>
                     <div class="soru">
                         <span class="material-symbols-outlined soru-icon">quiz</span>
@@ -196,3 +197,67 @@ document.getElementById(soruAdetTextBoxID0).addEventListener("keypress", (event)
         document.getElementById(soruOlusturButtonID0).click();
     }
 })
+
+// ------------- Cevap Kontrol ---------------
+// questType : eğer true ise cevap bilinmiyor, false ise soru bilinmiyor--
+function halHatirAnswerCheck(soruID, elementSoruID, questType){
+
+    const question = halHatirSorular[soruID];
+    const answer = document.getElementById(elementSoruID).querySelector("input").value;
+
+    if(answer){
+        // --Cevap bilinmiyor ise--
+        if(questType == true){
+
+            if(answer.replace(/[.,!?' ]/g,'').toLowerCase() == question.cevap.replace(/[.,!?' ]/g,'').toLowerCase()){
+                document.getElementById(elementSoruID).classList.add("true");
+                // --Eğer cevap doğru ise textbox 'ı kaldırıp yerine sorunun diziden cevabını koy.
+                const cevapContentHTML = document.getElementById(elementSoruID).querySelector(".cevap .cevap-content");
+                cevapContentHTML.querySelector("input").remove();
+                let oldInner = cevapContentHTML.innerHTML;
+                cevapContentHTML.innerHTML = "";
+                cevapContentHTML.innerHTML += `<span>${question.cevap}</span>`;
+                cevapContentHTML.innerHTML += oldInner;
+            }
+            else {
+                document.getElementById(elementSoruID).classList.add("false");
+                document.getElementById(elementSoruID).querySelector("input").parentElement.style = "color: #9A1663;"
+                document.getElementById(elementSoruID).querySelector("input").parentElement.innerHTML = 
+                `
+                ${answer}
+                (<span style="color: green;">${question.cevap}</span>)
+                <span class="turkish">${question.cevapTurkce}</span>
+                `;
+                
+            }
+        }
+        // --Soru bilinmiyor ise--
+        else if (questType == false){
+
+            if(answer.replace(/[.,!?' ]/g,'').toLowerCase() == question.soru.replace(/[.,!?' ]/g,'').toLowerCase()){
+                document.getElementById(elementSoruID).classList.add("true");
+                // --Eğer cevap doğru ise textbox 'ı kaldırıp yerine sorunun diziden cevabını koy.
+                const cevapContentHTML = document.getElementById(elementSoruID).querySelector(".soru .soru-content");
+                cevapContentHTML.querySelector("input").remove();
+                let oldInner = cevapContentHTML.innerHTML;
+                cevapContentHTML.innerHTML = "";
+                cevapContentHTML.innerHTML += `<span>${question.soru}</span>`;
+                cevapContentHTML.innerHTML += oldInner;
+            }
+            else {
+                document.getElementById(elementSoruID).classList.add("false");
+                document.getElementById(elementSoruID).querySelector("input").parentElement.style = "color: #9A1663;"
+                document.getElementById(elementSoruID).querySelector("input").parentElement.innerHTML = 
+                `
+                ${answer}
+                (<span style="color: green;">${question.soru}</span>)
+                <span class="turkish">${question.soruTurkce}</span>
+                `;
+            }
+        }
+    }
+    else document.getElementById(elementSoruID).querySelector("input").style = "border: 1px solid red;";
+    
+    //Her cevap girildiğinde, doğru yanlış sonuçlarını güncelle yazdır.
+    sonuclariHesapla();
+}
