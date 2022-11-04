@@ -331,13 +331,15 @@ body{
     }
 }
 
+/* ----- Message Box Style ----- */
+
 .message-box{
 
     display: inline-block;
     position: absolute;
     z-index: 11;
     transform: translateX(100%);
-    bottom: 4%;
+    bottom: 8%;
     right: 0;
     transition-duration: 500ms;
 
@@ -367,5 +369,32 @@ body{
 
     .message-box{
         display: none;
+    }
+}
+
+
+/* ----- Local Stroge (istatistik) Style ----- */
+
+.local-stroge{
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.local-stroge #soru-istatistik{
+
+    display: block;
+    padding: 12px 0;
+    background-image: linear-gradient(rgb(158, 118, 118), rgb(129, 91, 91));
+    color: #EDEDED;
+    box-shadow: rgb(0, 0, 0, 0.4) 0 -1px 12px;
+}
+
+@media (max-width: 576px){
+    .local-stroge{
+        position: sticky;
     }
 }
