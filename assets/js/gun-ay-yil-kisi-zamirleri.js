@@ -239,12 +239,8 @@ function keyPressEnter(event){
     if(event.key == "Enter"){
 
         event.path[3].querySelector(".trueOrFalseCheck").click();
-        //Her cevap girildiğinde, doğru yanlış sonuçlarını güncelle yazdır.
-        sonuclariHesapla();
     }
 }
-
-
 
 // Soru sayısı textbox press Enter
 document.getElementById(soruAdetTextBoxID4).addEventListener("keypress", (event) =>{
