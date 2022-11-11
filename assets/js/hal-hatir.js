@@ -16,7 +16,7 @@ const halHatirSorular = [
     {id:14, soru:"How are you feeling ?", cevap:"I'm cool", soruTurkce:"Nasıl hissediyorsun ?", cevapTurkce:"Ben iyiyim.(I'm)"},
     {id:15, soru:"What’s happening?", cevap:"No complaints.", soruTurkce:"Hayatın nasıl gidiyor ? (vats heappinin)", cevapTurkce:"Şikayetim yok. (No kompileynts)"},
     {id:16, soru:"How are you doing ?", cevap:"Not bad.", soruTurkce:"Nasıl gidiyor ?", cevapTurkce:"Kötü değil, fena değil."},
-    {id:17, soru:"Are you OK?", cevap:"I am cool. How about you ?", soruTurkce:"İyi misin ?", cevapTurkce:"Harikayım. Sen nasılsın ?"},
+    {id:17, soru:"Are you OK?", cevap:"I am great. How about you ?", soruTurkce:"İyi misin ?", cevapTurkce:"Harikayım. Sen nasılsın ?"},
 
 ];
 
