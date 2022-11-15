@@ -1,9 +1,9 @@
 const tanismaYerSorular = [
     {id:0, soru:"What is your name ?", cevap:"My name is Burak.", soruTurkce:"Senin adın ne ? (What is)", cevapTurkce:"Benim adım Burak."},
     {id:1, soru:"What's your name ?", cevap:"I am Burak, and you ?", soruTurkce:"Senin adın ne ? (What's)", cevapTurkce:"Ben Burak, ya sen ?"},
-    {id:2, soru:"What's your name ?", cevap:"My name is Burak, and yours ?", soruTurkce:"Senin adın ne ?", cevapTurkce:"Benim ismim Burak, ya seninki ?"},
+    {id:2, soru:"What's your name ?", cevap:"My name is Burak, and you ?", soruTurkce:"Senin adın ne ?", cevapTurkce:"Benim ismim Burak, ya seninki ?"},
     {id:3, soru:"Hi.I am Burak. What's your name ?", cevap:"Hi. My name is Kaira. Nice to meet you.", soruTurkce:"Selam. Ben Burak. Senin adın ne ?", cevapTurkce:"Selam. Benim adım Kaira. Seninle tanışmak güzel."},
-    {id:4, soru:"Hey. My name is Kaira, and yours ?", cevap:"Hi Kaira. I am Burak. Pleased to meet you.", soruTurkce:"Selam. Benim adım Kaira, ya seninki ?", cevapTurkce:"Selam Kaira. Ben Burak. Tanıştığımıza memnun oldum. (Pilisdt tu mit yu)"},
+    {id:4, soru:"Hey. My name is Kaira, and you ?", cevap:"Hi Kaira. I am Burak. Pleased to meet you.", soruTurkce:"Selam. Benim adım Kaira, ya seninki ?", cevapTurkce:"Selam Kaira. Ben Burak. Tanıştığımıza memnun oldum. (Pilisdt tu mit yu)"},
     {id:5, soru:"My name is Kaira.", cevap:"Glad to meet you.", soruTurkce:"Benim adım Kaira.", cevapTurkce:"Tanıştığımıza sevindim.(Gılad tu mit yu)"},
     {id:6, soru:"I'm Burak.", cevap:"A pleasure to meet you.", soruTurkce:"Ben Burak.", cevapTurkce:"Seninle tanışmak bir zevk.(e pilejır tu mit yu)"},
     {id:7, soru:"I am happy to meet you.", cevap:"Nice to meet you too.", soruTurkce:"Seninle tanıştığıma memnun oldum.", cevapTurkce:"Bende seninle tanıştığıma memnun oldum."},
@@ -14,7 +14,7 @@ const tanismaYerSorular = [
     {id:12, soru:"Are you from England ?", cevap:"No. I am not. And you ?", soruTurkce:"İngiltere 'den misin ?", cevapTurkce:"Hayır, değilim. Ya sen ?"},
     {id:13, soru:"How old are you ?", cevap:"I am 15 years old.", soruTurkce:"Kaç yaşındasın ?", cevapTurkce:"Ben 15 yaşındayım."},
     {id:14, soru:"How old is she ?", cevap:"She is 20 years old.", soruTurkce:"O (kız) kaç yaşında ?", cevapTurkce:"O (kız) 20 yaşında."},
-    {id:15, soru:"How old is your fater ?", cevap:"My father is 40 years old.", soruTurkce:"Baban kaç yaşında ?", cevapTurkce:"Babam 40 yaşında (veya He/She is)"},
+    {id:15, soru:"How old is your father ?", cevap:"My father is 40 years old.", soruTurkce:"Baban kaç yaşında ?", cevapTurkce:"Babam 40 yaşında (veya He/She is)"},
     {id:16, soru:"How old is your mother ?", cevap:"She is 40 years old.", soruTurkce:"Annen kaç yaşında ?", cevapTurkce:"O (kız) 40 yaşında (veya My mother)"},
 
 ];

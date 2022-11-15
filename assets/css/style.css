@@ -357,7 +357,7 @@ body{
 
 .message-box.passive{
 
-    transform: translateX(100%);
+    transform: translateX(110%);
 }
 
 .message-box.active{
