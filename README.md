@@ -1,5 +1,4 @@
-
-# Questions-VanillaJavascript
+# EnglishWorkout-VanillaJavascript
 
 A web application where you can solve beginner-level English questions, store data in the browser's memory without using any database, and continue from where you left off in other time zones.
 
